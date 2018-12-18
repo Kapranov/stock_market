@@ -23,6 +23,11 @@ defmodule Master.MixProject do
   end
 
   defp deps do
-    []
+    [
+      {:ger_market, in_umbrella: true},
+      {:usa_market, in_umbrella: true},
+      {:converter, in_umbrella: true},
+      {:my_uk_app, in_umbrella: true}
+    ]
   end
 end
