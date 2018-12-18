@@ -10,6 +10,8 @@ defmodule StockMarket.MixProject do
   end
 
   defp deps do
-    []
+    [
+      {:gen_stage, "~> 0.14.1"}
+    ]
   end
 end
