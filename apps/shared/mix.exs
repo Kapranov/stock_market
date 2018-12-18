@@ -24,6 +24,7 @@ defmodule Shared.MixProject do
 
   defp deps do
     [
+      {:gen_stage, "~> 0.14.1"}
     ]
   end
 end
