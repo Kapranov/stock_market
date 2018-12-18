@@ -23,6 +23,8 @@ defmodule MyUkApp.MixProject do
   end
 
   defp deps do
-    []
+    [
+      {:shared, in_umbrella: true}
+    ]
   end
 end
