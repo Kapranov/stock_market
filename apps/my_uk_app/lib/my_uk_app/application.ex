@@ -5,6 +5,8 @@ defmodule MyUkApp.Application do
 
   def start(_type, _args) do
     children = [
+      MyUkApp.ReceiveConsumer,
+      MyUkApp.SendProducer
     ]
 
     opts = [strategy: :one_for_one, name: MyUkApp.Supervisor]
