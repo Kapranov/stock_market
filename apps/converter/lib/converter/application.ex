@@ -5,6 +5,8 @@ defmodule Converter.Application do
 
   def start(_type, _args) do
     children = [
+      Converter.ReceiveProducerConsumer,
+      Converter.SendProducerConsumer
     ]
 
     opts = [strategy: :one_for_one, name: Converter.Supervisor]
