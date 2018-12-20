@@ -159,4 +159,6 @@ for app in apps/*; do
 done
 ```
 
+* Running all tests in Umbrella application: `mix test`
+
 ### 18 December 2018 by Oleg G.Kapranov
