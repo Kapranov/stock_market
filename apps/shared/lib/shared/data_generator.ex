@@ -25,7 +25,7 @@ defmodule Shared.DataGenerator do
     random_sleep()
     # credo:disable-for-next-line
     IO.inspect(event, label: "[GER interface] ")
-    UsaMarket.ReceiveProducer.receive_info(event)
+    GerMarket.ReceiveProducer.receive_info(event)
   end
 
   defp generate({"UK", _} = data) do
@@ -33,7 +33,7 @@ defmodule Shared.DataGenerator do
     random_sleep()
     # credo:disable-for-next-line
     IO.inspect(event, label: "[UK interface] ")
-    UsaMarket.ReceiveProducer.receive_info(event)
+    MyUkApp.SendProducer.send_info(event)
   end
 
   defp event({location, currency}) do
