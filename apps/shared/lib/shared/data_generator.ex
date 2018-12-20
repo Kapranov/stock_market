@@ -29,7 +29,11 @@ defmodule Shared.DataGenerator do
   end
 
   defp generate({"UK", _} = data) do
-    data
+    event = event(data)
+    random_sleep()
+    # credo:disable-for-next-line
+    IO.inspect(event, label: "[UK interface] ")
+    UsaMarket.ReceiveProducer.receive_info(event)
   end
 
   defp event({location, currency}) do
