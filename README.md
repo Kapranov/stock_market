@@ -143,4 +143,20 @@ mix new my_uk_app --sup
 mix new shared --sup
 ```
 
+# Running test files in Umbrella
+
+* Absolute path: `mix test absolute_path`
+* Local path: `mix test test/receive_info_test.exs`
+* If you want to test the sub apps isolated to make sure that there
+  aren't any hidden deps, you need to iterate the sub apps with a shell
+  script, but should be easy:
+
+```bash
+for app in apps/*; do
+  pushd $app
+  mix test
+  popd
+done
+```
+
 ### 18 December 2018 by Oleg G.Kapranov
