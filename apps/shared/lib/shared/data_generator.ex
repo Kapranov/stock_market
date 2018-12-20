@@ -1,6 +1,7 @@
 defmodule Shared.DataGenerator do
   @moduledoc false
 
+  @step 1000..3000
   @steps 1..1000
 
   def generate do
@@ -12,7 +13,11 @@ defmodule Shared.DataGenerator do
   end
 
   defp generate({"US", _} = data) do
-    data
+    event = event(data)
+    random_sleep()
+    # credo:disable-for-next-line
+    IO.inspect(event, label: "[US interface] ")
+    UsaMarket.ReceiveProducer.receive_info(event)
   end
 
   defp generate({"GER", _} = data) do
@@ -21,5 +26,26 @@ defmodule Shared.DataGenerator do
 
   defp generate({"UK", _} = data) do
     data
+  end
+
+  defp event({location, currency}) do
+    %{
+      company: "company: #{location}, #{random_name()}",
+      price_per_share: random_price(),
+      currency: currency
+    }
+  end
+
+  defp random_sleep do
+    time = Enum.random(@step)
+    :timer.sleep(time)
+  end
+
+  defp random_name do
+    Enum.random(["A", "B", "C", "D", "E", "F"])
+  end
+
+  defp random_price do
+    Enum.random(@steps)
   end
 end
