@@ -2,7 +2,7 @@ defmodule Shared.DataGenerator do
   @moduledoc false
 
   @step 1000..3000
-  @steps 1..10
+  @steps 1..1000
 
   def generate do
     for _x <- (@steps) do
