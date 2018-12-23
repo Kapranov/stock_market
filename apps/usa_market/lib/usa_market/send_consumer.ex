@@ -20,8 +20,10 @@ defmodule UsaMarket.SendConsumer do
   end
 
   def handle_events(events, _from, state) do
-    # Enum.each(events, &Shared.Interface.process_info(UsaMarketInterface, &1))
-    Enum.each(events, &(IO.inspect(&1, label: "[US interface] ")))
+    Enum.each(events, &Shared.Interface.process_info(UsaMarketInterface, &1))
+    # For `Shared.DataGenerator.generate`
+    # credo:disable-for-next-line
+    # Enum.each(events, &(IO.inspect(&1, label: "[US interface] ")))
     {:noreply, [], state}
   end
 end

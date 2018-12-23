@@ -21,8 +21,10 @@ defmodule MyUkApp.ReceiveConsumer do
   end
 
   def handle_events(events, _from, state) do
-    # Enum.each(events, &Shared.Interface.process_info(MyUkAppInterface, &1))
-    Enum.each(events, &(IO.inspect(&1, label: "[UK interface] ")))
+    Enum.each(events, &Shared.Interface.process_info(MyUkAppInterface, &1))
+    # For `Shared.DataGenerator.generate`
+    # credo:disable-for-next-line
+    # Enum.each(events, &(IO.inspect(&1, label: "[UK interface] ")))
     {:noreply, [], state}
   end
 end
